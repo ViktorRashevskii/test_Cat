@@ -2,6 +2,7 @@ const assets = [
 
     "assets/lavender-sky.png",
     "assets/cat.png",
+    "assets/cat-shock.png",
     "assets/cat-head.png",
     "assets/cat-head-1.png",
     "assets/cat-head-2.png",
@@ -30,46 +31,46 @@ assets.forEach(src => {
 
 
         let percent =
-        Math.floor((loaded / assets.length) * 100);
+            Math.floor((loaded / assets.length) * 100);
 
 
 
         document.querySelector("#percent")
-        .innerHTML = percent;
+            .innerHTML = percent;
 
 
 
         document.querySelector("#progress")
-        .style.width = percent + "%";
+            .style.width = percent + "%";
 
 
 
-        if(loaded === assets.length){
+        if (loaded === assets.length) {
 
 
-            setTimeout(()=>{
+            setTimeout(() => {
 
 
                 document.querySelector("#loader")
-                .style.opacity = 0;
+                    .style.opacity = 0;
 
 
 
-                setTimeout(()=>{
+                setTimeout(() => {
 
 
                     document.querySelector("#loader")
-                    .remove();
+                        .remove();
 
 
                     startScene();
 
 
-                },1000);
+                }, 1000);
 
 
 
-            },500);
+            }, 500);
 
 
         }
@@ -89,41 +90,41 @@ assets.forEach(src => {
 
 
 
-function startScene(){
+function startScene() {
 
 
     const start =
-    document.querySelector("#start-button");
+        document.querySelector("#start-button");
 
 
 
-    start.onclick = ()=>{
+    start.onclick = () => {
 
 
         start.style.opacity = 0;
 
 
 
-        setTimeout(()=>{
+        setTimeout(() => {
 
 
             start.remove();
 
 
 
-            setTimeout(()=>{
+            setTimeout(() => {
 
 
                 document.querySelector("#character-layer")
-                .style.opacity = 1;
+                    .style.opacity = 1;
 
 
 
-                setTimeout(()=>{
+                setTimeout(() => {
 
 
                     document.querySelector("#dialog")
-                    .style.bottom = "40px";
+                        .style.bottom = "40px";
 
 
 
@@ -131,15 +132,15 @@ function startScene(){
 
 
 
-                },2000);
+                }, 1500);
 
 
 
-            },3000);
+            }, 250);
 
 
 
-        },1000);
+        }, 250);
 
 
 
@@ -157,22 +158,22 @@ function startScene(){
 let texts = [
 
 
-"эй, тётка! не хочешь поучаствовать лотерее? здесь получают гарантированные призы.",
+    "Эй, тётка! Не хочешь поучаствовать лотерее? здесь получают гарантированные призы.",
 
 
-"подходи, не бойся. я не царапаюсь :3",
+    "Подходи, не бойся. Я не царапаюсь :3",
 
 
-"сегодня у тебя удачный день. ты первый мой клиент. в таком случае я дам тебе 3 жетона бесплатно",
+    "Сегодня у тебя удачный день. Ты первый мой клиент. В таком случае я дам тебе 3 жетона бесплатно",
 
 
-"о, нет. мои жетоны исчезли...",
+    "О, нет. Мои жетоны исчезли...",
 
 
-"тётка, если хочешь получить призы - найди мои жетоны",
+    "Тётка, если хочешь получить призы - найди мои жетоны",
 
 
-"скорее!"
+    "Скорее!"
 
 
 
@@ -189,7 +190,7 @@ let current = 0;
 
 
 
-function showDialog(){
+function showDialog() {
 
 
     typeText(texts[current]);
@@ -197,47 +198,47 @@ function showDialog(){
 
 
     document.querySelector("#next")
-    .onclick = ()=>{
+        .onclick = () => {
 
 
 
-        current++;
+            current++;
 
 
 
-        if(current === 3){
+            if (current === 3) {
 
 
-            storm();
+                storm();
 
 
-            return;
+                return;
+
+
+            }
+
+
+
+            if (current < texts.length) {
+
+
+                typeText(texts[current]);
+
+
+            }
+
+
+
+            if (current === texts.length) {
+
+
+                location.href = "page2.html";
+
+
+            }
 
 
         }
-
-
-
-        if(current < texts.length){
-
-
-            typeText(texts[current]);
-
-
-        }
-
-
-
-        if(current === texts.length){
-
-
-            location.href = "page2.html";
-
-
-        }
-
-
-    }
 
 
 }
@@ -258,12 +259,12 @@ let typingTimer;
 
 
 
-function typeText(message){
+function typeText(message) {
 
 
 
     const textBox =
-    document.querySelector("#text");
+        document.querySelector("#text");
 
 
 
@@ -289,7 +290,7 @@ function typeText(message){
 
 
 
-    typingTimer = setInterval(()=>{
+    typingTimer = setInterval(() => {
 
 
 
@@ -302,7 +303,7 @@ function typeText(message){
 
 
 
-        if(index >= message.length){
+        if (index >= message.length) {
 
 
 
@@ -322,7 +323,7 @@ function typeText(message){
 
 
 
-    },40);
+    }, 40);
 
 
 
@@ -339,32 +340,40 @@ function typeText(message){
 function storm(){
 
 
-
     const storm =
     document.querySelector("#storm");
 
 
 
+    // ураган появляется
     storm.style.opacity = 1;
 
 
 
-
+    // через 1 секунду после появления меняем кота
     setTimeout(()=>{
 
+
+        changeCatToShock();
+
+
+
+    },1000);
+
+
+
+    // через 3 секунды убираем ураган
+    setTimeout(()=>{
 
 
         storm.style.opacity = 0;
 
 
 
-
         setTimeout(()=>{
 
 
-
             current = 3;
-
 
 
             typeText(texts[current]);
@@ -375,19 +384,11 @@ function storm(){
 
 
 
-
     },3000);
 
 
 
 }
-
-
-
-
-
-
-
 
 
 let avatarTimer;
@@ -416,16 +417,16 @@ let avatarFrame = 0;
 
 
 
-function startAvatarAnimation(){
+function startAvatarAnimation() {
 
 
 
     const avatar =
-    document.querySelector("#avatar-image");
+        document.querySelector("#avatar-image");
 
 
 
-    if(!avatar) return;
+    if (!avatar) return;
 
 
 
@@ -434,12 +435,12 @@ function startAvatarAnimation(){
 
 
 
-    avatarTimer = setInterval(()=>{
+    avatarTimer = setInterval(() => {
 
 
 
         avatar.src =
-        avatarFrames[avatarFrame];
+            avatarFrames[avatarFrame];
 
 
 
@@ -448,7 +449,7 @@ function startAvatarAnimation(){
 
 
 
-        if(avatarFrame >= avatarFrames.length){
+        if (avatarFrame >= avatarFrames.length) {
 
 
             avatarFrame = 0;
@@ -458,7 +459,7 @@ function startAvatarAnimation(){
 
 
 
-    },200);
+    }, 200);
 
 
 
@@ -472,7 +473,7 @@ function startAvatarAnimation(){
 
 
 
-function stopAvatarAnimation(){
+function stopAvatarAnimation() {
 
 
 
@@ -485,11 +486,11 @@ function stopAvatarAnimation(){
 
 
     const avatar =
-    document.querySelector("#avatar-image");
+        document.querySelector("#avatar-image");
 
 
 
-    if(avatar){
+    if (avatar) {
 
 
         avatar.src = "assets/cat-head.png";
@@ -498,5 +499,51 @@ function stopAvatarAnimation(){
     }
 
 
+
+}
+
+function changeCatToShock(){
+
+
+    const cat =
+    document.querySelector("#cat");
+
+
+
+    // плавно скрываем обычного кота
+    cat.style.opacity = 0;
+
+
+
+    setTimeout(()=>{
+
+
+        cat.src = "assets/cat-shock.png";
+
+
+
+        // ждём смену картинки и показываем
+        setTimeout(()=>{
+
+            cat.style.opacity = 1;
+
+        },50);
+
+
+
+    },500);
+
+
+}
+
+
+
+function returnCatNormal() {
+
+    const cat =
+        document.querySelector("#cat");
+
+
+    cat.src = "assets/cat.png";
 
 }
