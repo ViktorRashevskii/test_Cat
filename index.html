@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,77 +10,79 @@
 
 <body>
 
-<!-- ЗАГРУЗКА -->
-<div id="loader">
+    <!-- ЗАГРУЗКА -->
+    <div id="loader">
 
-    <img src="assets/loading-cat.gif">
+        <img src="assets/loading-cat.gif">
 
-    <div id="loading-text">
-        Загрузка: <span id="percent">0</span>%
-    </div>
-
-    <div class="loading-bar">
-        <div id="progress"></div>
-    </div>
-
-</div>
-
-
-<!-- ОСНОВНАЯ СЦЕНА -->
-
-<div id="game">
-
-
-    <img id="sky" src="assets/lavender-sky.png">
-
-
-    <button id="start-button">
-        НАЧАТЬ
-    </button>
-
-
-    <div id="character-layer">
-
-        <img id="cat"
-             src="assets/cat.png">
-
-        <img id="machine"
-             src="assets/pokeball-machine.png">
-
-    </div>
-
-
-
-    <!-- ДИАЛОГ -->
-
-    <div id="dialog">
-
-        <div id="cat-avatar">
-            <img src="assets/cat-head.png">
+        <div id="loading-text">
+            Загрузка: <span id="percent">0</span>%
         </div>
 
-
-        <div id="text">
+        <div class="loading-bar">
+            <div id="progress"></div>
         </div>
 
+    </div>
 
-        <button id="next">
-            >
+
+    <!-- ОСНОВНАЯ СЦЕНА -->
+
+    <div id="game">
+
+
+        <img id="sky" src="assets/lavender-sky.png">
+
+
+        <button id="start-button">
+            НАЧАТЬ
         </button>
 
+
+        <div id="character-layer">
+
+            <div id="characters">
+
+                <img id="cat" src="assets/cat.png">
+
+                <img id="machine" src="assets/pokeball-machine.png">
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ДИАЛОГ -->
+
+        <div id="dialog">
+
+            <div id="cat-avatar">
+                <img src="assets/cat-head.png">
+            </div>
+
+
+            <div id="text">
+            </div>
+
+
+            <button id="next">
+                >
+            </button>
+
+        </div>
+
+
+        <!-- УРАГАН -->
+
+        <img id="storm" src="assets/storm.gif">
+
+
     </div>
 
 
-    <!-- УРАГАН -->
-
-    <img id="storm"
-         src="assets/storm.gif">
-
-
-</div>
-
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
