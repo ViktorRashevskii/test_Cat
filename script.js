@@ -94,7 +94,7 @@ start.onclick=()=>{
             setTimeout(()=>{
 
                 document.querySelector("#dialog")
-                .style.bottom="100px";
+                .style.bottom="40px";
 
 
                 showDialog();

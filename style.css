@@ -390,7 +390,7 @@ button {
     #characters {
 
 
-        bottom:150px;
+        bottom:135px;
 
 
         gap:0px;
@@ -414,7 +414,7 @@ button {
 
 
         width:200px;
-        transform: translateY(50px);
+        transform: translateY(10px);
        
     }
 
