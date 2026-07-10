@@ -232,7 +232,23 @@ function showDialog() {
             if (current === texts.length) {
 
 
-                location.href = "page2.html";
+                const transition =
+                    document.querySelector("#transition");
+
+
+
+                transition.style.opacity = 1;
+
+
+
+                setTimeout(() => {
+
+
+                    location.href = "page2.html";
+
+
+                }, 1500);
+
 
 
             }
@@ -337,11 +353,11 @@ function typeText(message) {
 
 
 
-function storm(){
+function storm() {
 
 
     const storm =
-    document.querySelector("#storm");
+        document.querySelector("#storm");
 
 
 
@@ -351,26 +367,26 @@ function storm(){
 
 
     // через 1 секунду после появления меняем кота
-    setTimeout(()=>{
+    setTimeout(() => {
 
 
         changeCatToShock();
 
 
 
-    },1000);
+    }, 1000);
 
 
 
     // через 3 секунды убираем ураган
-    setTimeout(()=>{
+    setTimeout(() => {
 
 
         storm.style.opacity = 0;
 
 
 
-        setTimeout(()=>{
+        setTimeout(() => {
 
 
             current = 3;
@@ -380,11 +396,11 @@ function storm(){
 
 
 
-        },1000);
+        }, 1000);
 
 
 
-    },3000);
+    }, 3000);
 
 
 
@@ -502,11 +518,11 @@ function stopAvatarAnimation() {
 
 }
 
-function changeCatToShock(){
+function changeCatToShock() {
 
 
     const cat =
-    document.querySelector("#cat");
+        document.querySelector("#cat");
 
 
 
@@ -515,7 +531,7 @@ function changeCatToShock(){
 
 
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
 
         cat.src = "assets/cat-shock.png";
@@ -523,15 +539,15 @@ function changeCatToShock(){
 
 
         // ждём смену картинки и показываем
-        setTimeout(()=>{
+        setTimeout(() => {
 
             cat.style.opacity = 1;
 
-        },50);
+        }, 50);
 
 
 
-    },500);
+    }, 500);
 
 
 }
