@@ -393,7 +393,7 @@ button {
         bottom:150px;
 
 
-        gap:15px;
+        gap:0px;
 
 
     }
@@ -414,8 +414,8 @@ button {
 
 
         width:200px;
-
-
+        transform: translateY(50px);
+       
     }
 
 
